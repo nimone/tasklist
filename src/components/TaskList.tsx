@@ -7,9 +7,7 @@ interface IProps {
 
 function TaskList({ children }: IProps) {
   return (
-    <ScrollView className="mx-4" showsVerticalScrollIndicator={false}>
-      {children}
-    </ScrollView>
+    <ScrollView showsVerticalScrollIndicator={false}>{children}</ScrollView>
   )
 }
 

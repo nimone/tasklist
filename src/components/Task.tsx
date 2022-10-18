@@ -50,7 +50,7 @@ function Task({ task }: IProps) {
 
   const animStyles = useAnimatedStyle(() => ({
     transform: [{ translateX: translateX.value }],
-    marginVertical: x.value * 4,
+    marginVertical: x.value * 6,
     height: x.value * 65,
     borderWidth: x.value * 2,
     opacity: x.value,
@@ -65,7 +65,7 @@ function Task({ task }: IProps) {
   }))
 
   return (
-    <View className="flex justify-center">
+    <View className="flex justify-center mx-4">
       <Animated.View
         style={iconStyles}
         className="absolute p-2 bg-red-500/10 right-4 rounded-xl"

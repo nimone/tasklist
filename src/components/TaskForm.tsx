@@ -24,9 +24,9 @@ function TaskForm({ defaultValue = "" }: IProps) {
     <KeyboardAvoidingView className="flex-row p-4">
       <TextInput
         className={clsx(
-          "flex-1 mr-4 px-6 rounded-full bg-gray-400/20 dark:text-gray-200",
-          "text-lg border-2 border-gray-200 dark:border-gray-600",
-          focused && "border-gray-600 dark:border-gray-500"
+          "flex-1 mr-4 px-6 rounded-full bg-gray-100 dark:bg-gray-600 dark:text-gray-200",
+          "text-lg border-2",
+          focused ? "border-gray-500" : "border-gray-200 dark:border-gray-600"
         )}
         placeholder="New Task"
         placeholderTextColor="gray"
@@ -41,6 +41,7 @@ function TaskForm({ defaultValue = "" }: IProps) {
           !newTask.length && "opacity-60"
         )}
         onPress={handleSubmit}
+        disabled={!newTask.length}
       >
         <FeatherIcons name="plus" size={32} color="white" />
       </TouchableOpacity>

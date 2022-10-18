@@ -21,7 +21,7 @@ export default function App() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView className="flex-1 bg-gray-50 dark:bg-gray-800">
         <StatusBar style="auto" />
-        <View className="flex-row justify-between m-6 mt-12">
+        <View className="flex-row justify-between m-6 mt-16">
           <Text className="text-5xl font-bold text-gray-800 dark:text-gray-200">
             Your Tasks
           </Text>
@@ -43,7 +43,7 @@ export default function App() {
           </TaskList>
         ) : (
           <View className="items-center justify-center flex-1">
-            <Text className="text-2xl font-light text-gray-300">
+            <Text className="text-2xl font-light text-gray-400">
               You are all caught up!
             </Text>
           </View>
