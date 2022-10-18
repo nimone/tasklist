@@ -77,11 +77,13 @@ function Task({ task }: IProps) {
           style={animStyles}
           className={clsx(
             "flex-row items-center px-4 mx-1 rounded-xl",
-            task.done ? "border-sky-200 bg-sky-50" : "border-gray-100 bg-white"
+            task.done
+              ? "border-sky-400/20 bg-sky-200/20"
+              : "border-gray-200/20 bg-white dark:bg-gray-700 "
           )}
         >
           <TouchableOpacity
-            className="relative p-4 mr-2 bg-sky-100 rounded-xl text-sky-500"
+            className="relative p-4 mr-4 bg-sky-400/10 rounded-xl"
             onPress={() => {
               Vibration.vibrate(task.done ? 5 : [5, 10, 15])
               editTask(task.id, { done: !task.done })
@@ -103,7 +105,9 @@ function Task({ task }: IProps) {
           <Text
             className={clsx(
               "text-lg font-medium",
-              task.done ? "text-gray-600" : "text-gray-800"
+              task.done
+                ? "text-gray-600 dark:text-gray-400"
+                : "text-gray-800 dark:text-gray-100"
             )}
           >
             {task.content}

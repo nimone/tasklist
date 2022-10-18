@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react"
 import { SafeAreaView, Text, View } from "react-native"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import Animated, { SlideInLeft } from "react-native-reanimated"
+import DarkModeToggle from "./components/DarkModeToggle"
 import Task from "./components/Task"
 import TaskForm from "./components/TaskForm"
 import TaskList from "./components/TaskList"
@@ -18,10 +19,13 @@ export default function App() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <SafeAreaView className="flex-1 bg-gray-50">
-        <StatusBar translucent backgroundColor="transparent" />
-        <View className="m-6 mt-12">
-          <Text className="text-5xl font-bold text-gray-800">Your Tasks</Text>
+      <SafeAreaView className="flex-1 bg-gray-50 dark:bg-gray-800">
+        <StatusBar style="auto" />
+        <View className="flex-row justify-between m-6 mt-12">
+          <Text className="text-5xl font-bold text-gray-800 dark:text-gray-200">
+            Your Tasks
+          </Text>
+          <DarkModeToggle />
         </View>
         {tasks.length ? (
           <TaskList>

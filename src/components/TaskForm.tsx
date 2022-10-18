@@ -3,6 +3,7 @@ import { KeyboardAvoidingView, TextInput, TouchableOpacity } from "react-native"
 import FeatherIcons from "@expo/vector-icons/Feather"
 import useStore from "../store"
 import clsx from "clsx"
+import { useColorScheme } from "nativewind"
 
 interface IProps {
   defaultValue?: string
@@ -23,11 +24,12 @@ function TaskForm({ defaultValue = "" }: IProps) {
     <KeyboardAvoidingView className="flex-row p-4">
       <TextInput
         className={clsx(
-          "flex-1 mr-4 px-6 rounded-full",
-          "text-lg border-2 border-gray-200",
-          focused && "border-gray-600"
+          "flex-1 mr-4 px-6 rounded-full bg-gray-400/20 dark:text-gray-200",
+          "text-lg border-2 border-gray-200 dark:border-gray-600",
+          focused && "border-gray-600 dark:border-gray-500"
         )}
         placeholder="New Task"
+        placeholderTextColor="gray"
         value={newTask}
         onChangeText={setNewTask}
         onBlur={() => setFocused(false)}
@@ -35,8 +37,8 @@ function TaskForm({ defaultValue = "" }: IProps) {
       />
       <TouchableOpacity
         className={clsx(
-          "p-3 rounded-full",
-          newTask.length ? "bg-gray-800" : "bg-gray-600"
+          "p-3 rounded-full bg-gray-700",
+          !newTask.length && "opacity-60"
         )}
         onPress={handleSubmit}
       >
